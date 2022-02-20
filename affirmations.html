@@ -1,0 +1,137 @@
+<DOCTYPE! html>
+<head>
+	<title>Wazzu Affirmation Generator</title>
+	
+	<link href='https://fonts.googleapis.com/css?family=Archivo Black' rel='stylesheet'>
+	
+	<style>
+		.flex{
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-around;
+			margin-top: 10px;
+			align-items: center;
+			height: 100%;
+		}
+		body{
+			font-family: 'Archivo Black';
+			margin: 0px;
+		}
+		.sidebar{
+			color: white;
+			letter-spacing: 1.4px;
+			width: 25%;
+			height: auto;
+			text-align: center;
+			background-color: #9594a8;
+			padding: 25px 0px;
+		}
+		.sidebar p{
+			font-size: 48px;
+			text-shadow: 0px 0px 15px #A60F2D;
+		}
+		.images{
+			top: 0px;
+			left: 0px;
+			position: relative;
+			padding: 0px;
+			display: inline-block;
+		}
+		.images img{
+			width: 70%;
+			margin-top: 0px;
+		}
+		.images p{
+			margin: 0px;
+			text-shadow: 0px 0px 15px #A60F2D;
+			text-align: center;
+			font-size: 48px;
+			color: white;
+		}
+		#background{
+			left: 0px;
+			top: 0px;
+			height: 700px;
+			position: relative;
+			width: 1200px;
+			z-index: -5;
+		}
+		#subject{
+			top: 125px;
+			left: 200px;
+			position: absolute;
+			height: 75%;
+			width: auto;
+			z-index: -3;
+		}
+		.person{
+			position: absolute;
+			top: 30px;
+			left: 500px;
+		}
+		.affirmation{
+			position: absolute;
+			top: 600px;
+			left: 400px;
+		}
+		button {
+		  background-color: #A60F2D;
+		  border: none;
+		  color: white;
+		  padding: 15px 32px;
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+		  font-size: 16px;
+		  margin: 4px 2px;
+		  cursor: pointer;
+		}
+	</style>
+	
+
+	<script>
+
+	
+	backgroundImages = ["https://i.imgur.com/bE7zo6L.jpg", "https://i.imgur.com/ho37gSY.jpg", "https://i.imgur.com/8RkOM0R.jpg", "https://i.imgur.com/Musxy5o.jpg", "https://i.imgur.com/RlXFk7H.jpg", "https://i.imgur.com/F4HVx6P.jpg", "https://i.imgur.com/4SaqYXz.jpg", "https://i.imgur.com/BPlo3Iw.jpg", "https://i.imgur.com/MCodA9c.jpg"];
+	foregroundImages = ["https://i.imgur.com/mVpjyrU.png", "https://i.imgur.com/Z2pmbPk.png", "https://i.imgur.com/S6sCKd5.png", "https://i.imgur.com/tkCLMAN.png", "https://i.imgur.com/jcq3Jtl.png", "https://i.imgur.com/ScWfSRw.png", "https://i.imgur.com/EMCXYUY.png", "https://i.imgur.com/9Orr16v.png",];
+	subjects = ["Andy O'Fallon", "Butch T Cougar", "Max Borghi", "Kirk Schulz", "Coronavirus", "Jake Dickert", "Cougar Gold Cheese", "The dining halls"];
+	affirmations = ["will give me an extension on my PA", "will not shut down school", "will give me a good midterm score", "will help me find love", "will bring home the apple cup", "will solve my mental health crisis", "will defeat the huskies", "will reduce my tuition", "will get me an internship"];
+	function shuffleAffirmation() 
+	{
+		
+		document.getElementById("background").src = backgroundImages[randomRange(0,8)];
+		randomItem = randomRange(0,7);
+		document.getElementById("subject").src = foregroundImages[randomItem];
+		document.getElementById("person").textContent = subjects[randomItem];
+		document.getElementById("affirmation").textContent = affirmations[randomRange(0,8)];
+
+	}
+
+	// will return a int randomy inbetween the range of min and max
+	function randomRange(min, max) {
+  	min = Math.ceil(min);
+  	max = Math.floor(max);
+  	return Math.floor( Math.random() * (max - min + 1) + min); 
+}
+
+
+
+	</script>
+</head>
+
+<body>
+	<div class="flex">
+		<div class="sidebar">
+			<p>Generate an affirmation!!!</p>
+			<button type="button" onclick="shuffleAffirmation();">Generate!</button>
+		</div>
+		
+		<div class="images">
+			<p id="person" class="person">Andy O'Fallon</p>
+			<img id="background" src="https://i.imgur.com/bE7zo6L.jpg">
+			<img id="subject" src="https://i.imgur.com/mVpjyrU.png">
+			<p id="affirmation" class="affirmation">will give me an extension on my PA</p>
+		</div>
+	</div>
+</body>
+</html>
